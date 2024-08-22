@@ -43,7 +43,10 @@
 #     2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
 #     
 
-# Para listar as pastas dentro de, por exemplo, `home` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `du -sh /home/* | sort -rh | head -n 10`
+# 3. Para listar as pastas dentro de, por exemplo, `home` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /home/* | sort -rh | head -n 10`
+# 
+#     3.1 Para listar as pastas dentro de, por exemplo, `/` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /* | sort -rh | head -n 10`
+# 
 # 
 # Vamos explicar o que cada parte do comando faz:
 # 
@@ -68,6 +71,38 @@
 #     NÃO há.
 #     ```
 # 
+
+# No `Linux Ubuntu`, há várias pastas que podem acumular arquivos desnecessários ao longo do tempo e que podem ser limpas com segurança. No entanto, é importante ter cuidado para não excluir arquivos importantes para o funcionamento do sistema ou dos aplicativos. Aqui estão algumas pastas que é conveniente limpar regularmente:
+# 
+# 1. **`/tmp`**: Descrição: A pasta `/tmp` é usada para armazenar arquivos temporários que são criados e usados por programas em execução. O sistema limpa essa pasta periodicamente, mas você pode limpá-la manualmente. Como limpar: `sudo rm -rf /tmp/*`
+# 
+# 2. **`/var/tmp`**: Descrição: Similar à `/tmp`, mas os arquivos aqui são mantidos por um período mais longo antes de serem excluídos automaticamente. Como limpar: `sudo rm -rf /var/tmp/*`
+# 
+# 3. **`/var/cache/apt/archives`**: Descrição: Essa pasta armazena os pacotes `.deb` baixados durante as atualizações e instalações de _software_ usando o `apt`. Os arquivos aqui podem ser removidos após a instalação. Como limpar: `sudo apt-get clean`
+# 
+# 4. **`/var/log`**: Descrição: Essa pasta contém arquivos de _log_ do sistema. Alguns _logs_ podem crescer muito com o tempo, ocupando espaço em disco. Como limpar:
+# 
+#     4.1 **Para remover _logs_ antigos**: `sudo journalctl --vacuum-time=2weeks`
+# 
+#     4.2 **Para limpar todos os _logs_ (use com cuidado)**: `sudo rm -rf /var/log/*`
+# 
+# 5. **_Cache_ de navegadores**: Descrição: Navegadores como `Firefox` e `Chrome` armazenam caches locais para acelerar o carregamento de páginas. Esses _caches_ podem crescer bastante. Como limpar:
+# 
+#     5.1 **No `Firefox`**: Vá para `Configurações > Privacidade & Segurança > Cookies e dados do site > Limpar dados`.
+# 
+#     5.2 **No `Chrome`**: Vá para `Configurações > Privacidade e segurança > Limpar dados de navegação.`
+# 
+# 6. **Arquivos de _cache_ no diretório do usuário**: Descrição: Muitos aplicativos criam caches no diretório do usuário, geralmente em `~/.cache`. Esses arquivos podem ser excluídos com segurança, mas alguns aplicativos podem precisar recriar o _cache_ posteriormente. Como limpar: `rm -rf ~/.cache/*`
+# 
+# 7. **`/var/crash`**: Descrição: Contém relatórios de falhas de aplicativos. Se nenhum programa estiver travando, você pode limpá-lo. Como limpar: `sudo rm -rf /var/crash/*`
+# 
+# 8. **Arquivos órfãos**: Descrição: Pacotes instalados como dependências que não são mais necessários. Como limpar: `sudo apt-get autoremove`
+# 
+# **Dica Adicional**
+# 
+# **`BleachBit`**: Uma ferramenta gráfica que ajuda a limpar o sistema, removendo _caches_, _logs_, e arquivos temporários de maneira segura.
+# 
+# Lembre-se de fazer _backup_ ou revisar o conteúdo antes de deletar qualquer coisa, especialmente em pastas que você não tem certeza sobre o propósito.
 
 # ## Referências
 # 
