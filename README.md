@@ -53,7 +53,43 @@ No `Linux Ubuntu`, que usa o ambiente gráfico `XFCE`, você pode tentar desativ
 
 Se desativar o `compositor` resolver o problema, mas você quiser continuar usando o `compositor`, pode tentar ajustar algumas configurações, como desmarcar `"Sombrear janelas inativas"` ou ajustar a `"Sombra da janela"`.
 
-### 1.1 Código completo para configurar/instalar/usar
+### 1.2 Atualizar ou reinstalar o _driver_ dráfico
+
+O problema pode ser causado por um _driver_ gráfico mal configurado ou com defeito. Aqui estão os passos para atualizar ou reinstalar o _driver_ gráfico:
+
+1. **Atualizar os _drivers_**: Abra um `Terminal Emulator` e execute:
+
+    ```
+    sudo apt update
+    sudo apt full-upgrade -y
+    ```
+
+2. **Reinstalar o _driver_ gráfico**: Se você está usando o _driver_ `amdgpu`, pode reinstalá-lo:
+
+    ```
+    sudo apt remove --purge xserver-xorg-video-amdgpu -y
+    sudo apt install xserver-xorg-video-amdgpu -y
+    ```
+
+3. **Se você está usando o _driver_ `radeon`**:
+
+    ```
+    sudo apt-get remove --purge xserver-xorg-video-radeon
+    sudo apt-get install xserver-xorg-video-radeon
+    ```
+
+
+### Testar com um _driver_ diferente
+
+Se você estava usando `amdgpu`, pode tentar mudar para o _driver_ radeon, ou vice-versa, para ver se o problema é resolvido.
+
+1. **Instalar o _driver_ alternativo**:
+
+    - **Para o `radeon`**: `sudo apt-get install xserver-xorg-video-radeon`
+
+    - **Para o `amdgpu`**: `sudo apt-get install xserver-xorg-video-amdgpu`
+
+### 1.3 Código completo para configurar/instalar/usar
 
 Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu` sem precisar digitar linha por linha, você pode seguir estas etapas:
 
@@ -65,38 +101,6 @@ Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior vo
     NÃO há.
     ```
 
-
-No `Linux Ubuntu`, há várias pastas que podem acumular arquivos desnecessários ao longo do tempo e que podem ser limpas com segurança. No entanto, é importante ter cuidado para não excluir arquivos importantes para o funcionamento do sistema ou dos aplicativos. Aqui estão algumas pastas que é conveniente limpar regularmente:
-
-1. **`/tmp`**: Descrição: A pasta `/tmp` é usada para armazenar arquivos temporários que são criados e usados por programas em execução. O sistema limpa essa pasta periodicamente, mas você pode limpá-la manualmente. Como limpar: `sudo rm -rf /tmp/*`
-
-2. **`/var/tmp`**: Descrição: Similar à `/tmp`, mas os arquivos aqui são mantidos por um período mais longo antes de serem excluídos automaticamente. Como limpar: `sudo rm -rf /var/tmp/*`
-
-3. **`/var/cache/apt/archives`**: Descrição: Essa pasta armazena os pacotes `.deb` baixados durante as atualizações e instalações de _software_ usando o `apt`. Os arquivos aqui podem ser removidos após a instalação. Como limpar: `sudo apt-get clean`
-
-4. **`/var/log`**: Descrição: Essa pasta contém arquivos de _log_ do sistema. Alguns _logs_ podem crescer muito com o tempo, ocupando espaço em disco. Como limpar:
-
-    4.1 **Para remover _logs_ antigos**: `sudo journalctl --vacuum-time=2weeks`
-
-    4.2 **Para limpar todos os _logs_ (use com cuidado)**: `sudo rm -rf /var/log/*`
-
-5. **_Cache_ de navegadores**: Descrição: Navegadores como `Firefox` e `Chrome` armazenam caches locais para acelerar o carregamento de páginas. Esses _caches_ podem crescer bastante. Como limpar:
-
-    5.1 **No `Firefox`**: Vá para `Configurações > Privacidade & Segurança > Cookies e dados do site > Limpar dados`.
-
-    5.2 **No `Chrome`**: Vá para `Configurações > Privacidade e segurança > Limpar dados de navegação.`
-
-6. **Arquivos de _cache_ no diretório do usuário**: Descrição: Muitos aplicativos criam caches no diretório do usuário, geralmente em `~/.cache`. Esses arquivos podem ser excluídos com segurança, mas alguns aplicativos podem precisar recriar o _cache_ posteriormente. Como limpar: `rm -rf ~/.cache/*`
-
-7. **`/var/crash`**: Descrição: Contém relatórios de falhas de aplicativos. Se nenhum programa estiver travando, você pode limpá-lo. Como limpar: `sudo rm -rf /var/crash/*`
-
-8. **Arquivos órfãos**: Descrição: Pacotes instalados como dependências que não são mais necessários. Como limpar: `sudo apt-get autoremove`
-
-**Dica Adicional**
-
-**`BleachBit`**: Uma ferramenta gráfica que ajuda a limpar o sistema, removendo _caches_, _logs_, e arquivos temporários de maneira segura.
-
-Lembre-se de fazer _backup_ ou revisar o conteúdo antes de deletar qualquer coisa, especialmente em pastas que você não tem certeza sobre o propósito.
 
 ## Referências
 
