@@ -1,28 +1,29 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Como configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu`
+# # Como configurar/instalar/usar o `desabilitar as comfigurações do compositor` no `Linux Ubuntu`
 # 
 # ## Resumo
 # 
-# Neste documento estão contidos os principais comandos e configurações para configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu`.
+# Neste documento estão contidos os principais comandos e configurações para configurar/instalar/usar o `desabilitar as comfigurações do compositor` no `Linux Ubuntu`.
 # 
 # ## _Abstract_
 # 
-# _This document contains the main commands and settings for configuring/installing/using the `list the folders within another with the largest volume of data` on `Linux Ubuntu`._
+# _This document contains the main commands and settings for configuring/installing/using the `disable composer settings` on `Linux Ubuntu`._
 
 # ## Descrição [2]
 # 
-# ### `Pasta`
+# ### `compositor`
 # 
-# Uma pasta, no contexto de sistemas operacionais e gerenciamento de arquivos, é uma estrutura de armazenamento que organiza e agrupa arquivos e outras pastas. Também conhecida como diretório, a pasta facilita a organização e a localização de arquivos, permitindo que os usuários criem uma hierarquia de dados. As pastas podem conter documentos, imagens, programas e outros tipos de arquivos, e podem ser estruturadas de forma a refletir a organização desejada pelo usuário, tornando a navegação e o gerenciamento de arquivos mais eficiente.
+# Um `compositor` é um componente de _software_ em sistemas operacionais que gerencia a composição e a exibição de gráficos na tela. Ele é responsável por combinar várias camadas de janelas e elementos gráficos em uma única imagem visual antes de enviá-la para o display. Isso permite efeitos visuais avançados, como transparência, sombras e animações suaves. No contexto de ambientes gráficos modernos, o `compositor` melhora a estética e a funcionalidade da interface do usuário, proporcionando uma experiência visual mais rica e fluida ao garantir que todas as janelas e efeitos sejam renderizados corretamente e de forma eficiente.
 # 
 
-# ## 1. Como configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu` [1][3]
+# ## 1. Como configurar/instalar/usar o `desabilitar as comfigurações do compositor` no `Linux Ubuntu` [1][3]
 # 
 # Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu`, você pode seguir estes passos:
 # 
 # 1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
+# 
 
 # 2. Certifique-se de que seu sistema esteja limpo e atualizado.
 # 
@@ -43,21 +44,17 @@
 #     2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
 #     
 
-# 3. Para listar as pastas dentro de, por exemplo, `home` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /home/* | sort -rh | head -n 10`
+# O problema que você deve estar enfrentando, onde arrastar uma janela cria várias imagens dela e faz a tela piscar, é geralmente relacionado a um problema com o _driver_ gráfico ou as configurações do `compositor` de janelas no ambiente gráfico. Aqui estão algumas possíveis soluções para resolver isso:
 # 
-#     3.1 Para listar as pastas dentro de, por exemplo, `/` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /* | sort -rh | head -n 10`
+# ### 1.1 Verificar as configurações do `Compositor`
 # 
+# No `Linux Ubuntu`, que usa o ambiente gráfico `XFCE`, você pode tentar desativar ou ajustar o `compositor`:
 # 
-# Vamos explicar o que cada parte do comando faz:
+# 1. Vá para `Configurações > Configurações do Gerenciador de Janelas`.
 # 
-# 1. **`du -sh /home/*`**: Calcula o uso de disco para cada diretório dentro de `/home`, exibindo o resultado em um formato legível (`-h` para `human-readable`) e resumido (`-s` para `summary`).
+# 2. Na aba `Compositor`, você pode tentar desativar a opção `"Ativar o compositor de janelas"` para ver se isso resolve o problema.
 # 
-# 2. **`sort -rh`**: Ordena o resultado em ordem decrescente (`-r` para reverse) com base no tamanho, interpretando os tamanhos de forma legível por humanos (`-h`).
-# 
-# 3. **`head -n 10`**: Exibe as 10 primeiras linhas do resultado, que correspondem às 10 pastas com maior volume de dados.
-# 
-# Executando esse comando no seu `Terminal Emulator`, você obterá uma lista das pastas dentro de `/home` com maior volume de dados, ordenadas de forma decrescente.
-# 
+# Se desativar o `compositor` resolver o problema, mas você quiser continuar usando o `compositor`, pode tentar ajustar algumas configurações, como desmarcar `"Sombrear janelas inativas"` ou ajustar a `"Sombra da janela"`.
 
 # ### 1.1 Código completo para configurar/instalar/usar
 # 
