@@ -182,6 +182,17 @@
 # 
 # Lembre-se de fazer _backup_ ou revisar o conteúdo antes de deletar qualquer coisa, especialmente em pastas que você não tem certeza sobre o propósito.
 
+# ## Como usar o `clean_system.py`
+#
+# O arquivo `docs/clean_system.py` automatiza tarefas de limpeza do sistema, removendo caches e arquivos temporários.
+# Execute o script com Python:
+#
+# ```bash
+# python docs/clean_system.py
+# ```
+#
+# Algumas etapas exigem privilégios de `sudo`, portanto você pode ser solicitado a informar a senha de administrador.
+#
 # ## Referências
 # 
 # [1] OPENAI. ***Listar pastas maiores linux.*** Disponível em: <https://chatgpt.com/c/eb532506-f911-4eb4-a483-6e060cd00863> (texto adaptado). Acessado em: 25/07/2024 13:33.
