@@ -102,25 +102,25 @@ Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior vo
 
 No `Linux Ubuntu`, há várias pastas que podem acumular arquivos desnecessários ao longo do tempo e que podem ser limpas com segurança. No entanto, é importante ter cuidado para não excluir arquivos importantes para o funcionamento do sistema ou dos aplicativos. Aqui estão algumas pastas que é conveniente limpar regularmente:
 
-1. **`/tmp`**: Descrição: A pasta `/tmp` é usada para armazenar arquivos temporários que são criados e usados por programas em execução. O sistema limpa essa pasta periodicamente, mas você pode limpá-la manualmente. Como limpar:
+1. **`/tmp`**: **Descrição**: A pasta `/tmp` é usada para armazenar arquivos temporários que são criados e usados por programas em execução. O sistema limpa essa pasta periodicamente, mas você pode limpá-la manualmente. Como limpar:
 
     ```bash
     sudo rm -rf /tmp/*
     ```
 
-2. **`/var/tmp`**: Descrição: Similar à `/tmp`, mas os arquivos aqui são mantidos por um período mais longo antes de serem excluídos automaticamente. Como limpar:
+2. **`/var/tmp`**: **Descrição**: Similar à `/tmp`, mas os arquivos aqui são mantidos por um período mais longo antes de serem excluídos automaticamente. Como limpar:
     
     ```bash
     sudo rm -rf /var/tmp/*
     ```
 
-3. **`/var/cache/apt/archives`**: Descrição: Essa pasta armazena os pacotes `.deb` baixados durante as atualizações e instalações de _software_ usando o `apt`. Os arquivos aqui podem ser removidos após a instalação. Como limpar:
+3. **`/var/cache/apt/archives`**: **Descrição**: Essa pasta armazena os pacotes `.deb` baixados durante as atualizações e instalações de _software_ usando o `apt`. Os arquivos aqui podem ser removidos após a instalação. Como limpar:
 
     ```bash
     sudo apt-get clean
     ```
 
-4. **`/var/log`**: Descrição: Essa pasta contém arquivos de _log_ do sistema. Alguns _logs_ podem crescer muito com o tempo, ocupando espaço em disco. Como limpar:
+4. **`/var/log`**: **Descrição**: Essa pasta contém arquivos de _log_ do sistema. Alguns _logs_ podem crescer muito com o tempo, ocupando espaço em disco. Como limpar:
 
     4.1 **Para remover _logs_ antigos**:
     
@@ -134,19 +134,19 @@ No `Linux Ubuntu`, há várias pastas que podem acumular arquivos desnecessário
     sudo rm -rf /var/log/*
     ```
 
-5. **_Cache_ de navegadores**: Descrição: Navegadores como `Firefox` e `Chrome` armazenam caches locais para acelerar o carregamento de páginas. Esses _caches_ podem crescer bastante. Como limpar:
+5. **_Cache_ de navegadores**: **Descrição**: Navegadores como `Firefox` e `Chrome` armazenam caches locais para acelerar o carregamento de páginas. Esses _caches_ podem crescer bastante. Como limpar:
 
     5.1 **No `Firefox`**: Vá para `Configurações > Privacidade & Segurança > Cookies e dados do site > Limpar dados`.
 
     5.2 **No `Chrome`**: Vá para `Configurações > Privacidade e segurança > Limpar dados de navegação.`
 
-6. **Arquivos de _cache_ no diretório do usuário**: Descrição: Muitos aplicativos criam caches no diretório do usuário, geralmente em `~/.cache`. Esses arquivos podem ser excluídos com segurança, mas alguns aplicativos podem precisar recriar o _cache_ posteriormente. Como limpar:
+6. **Arquivos de _cache_ no diretório do usuário**: **Descrição**: Muitos aplicativos criam caches no diretório do usuário, geralmente em `~/.cache`. Esses arquivos podem ser excluídos com segurança, mas alguns aplicativos podem precisar recriar o _cache_ posteriormente. Como limpar:
 
     ```bash
     sudo rm -rf ~/.cache/*
     ```
 
-7. **`/var/crash`**: Descrição: Contém relatórios de falhas de aplicativos. Se nenhum programa estiver travando, você pode limpá-lo. Como limpar:
+7. **`/var/crash`**: **Descrição**: Contém relatórios de falhas de aplicativos. Se nenhum programa estiver travando, você pode limpá-lo. Como limpar:
 
     ```bash
     sudo rm -rf /var/crash/*
@@ -189,6 +189,7 @@ python docs/clean_system.py
 ```
 
 Algumas etapas exigem privilégios de `sudo`, portanto você pode ser solicitado a informar a senha de administrador.
+
 
 ## Referências
 
