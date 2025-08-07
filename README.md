@@ -191,6 +191,38 @@ python docs/clean_system.py
 Algumas etapas exigem privilégios de `sudo`, portanto você pode ser solicitado a informar a senha de administrador.
 
 
+
+```python
+## Excluir todas as pastas e subpastas pelo `Terminal Emulator`
+
+Para excluir todas as pastas e subpastas chamadas, por exemplo `0_BACKUP`, dentro de `/home/edenedfsls/Documents/`, você pode usar o comando abaixo no seu Terminal Emulator:
+
+```bash
+find /home/edenedfsls/Documents/ -type d -name '0_BACKUP' -exec echo "Deleting: {}" \; -exec rm -rf {} \;
+```
+
+**Explicação**:
+- `find`: comando usado para localizar arquivos e diretórios.
+
+- `/home/edenedfsls/Documents/`: caminho base onde a busca será feita.
+
+- `-type d`: procura apenas por diretórios (pastas).
+
+- `-name '0_BACKUP'`: procura por pastas com exatamente esse nome.
+
+- `-exec rm -rf {} +`: para cada pasta encontrada, executa o comando `rm -rf` para removê-la com todo o conteúdo.
+
+**Atenção**:
+
+Este comando apaga permanentemente todas as pastas chamadas 0_BACKUP e seus conteúdos, sem confirmação.
+
+Se quiser ver a lista antes de excluir, execute primeiro:
+
+```bash
+find /home/edenedfsls/Documents/ -type d -name '0_BACKUP'
+```
+```
+
 ## Referências
 
 [1] OPENAI. ***Listar pastas maiores linux.*** Disponível em: <https://chatgpt.com/c/eb532506-f911-4eb4-a483-6e060cd00863> (texto adaptado). Acessado em: 25/07/2024 13:33.
