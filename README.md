@@ -71,9 +71,17 @@ Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior vo
     sudo apt full-upgrade -y
     ```
 
-3. Para listar as pastas dentro de, por exemplo, `home` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /home/* | sort -rh | head -n 10`
+3. Para listar as pastas dentro de, por exemplo, `home` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`:
 
-    3.1 Para listar as pastas dentro de, por exemplo, `/` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`: `sudo du -sh /* | sort -rh | head -n 10`
+    ```bash
+    sudo du -sh /home/* | sort -rh | head -n 10
+    ```
+
+    3.1 Para listar as pastas dentro de, por exemplo, `/` com maior volume de dados no `Linux Ubuntu`, você pode usar o comando du (`disk usage`) em conjunto com outros comandos como `sort` e `head` para ordenar e exibir as pastas com maior volume de dados. Aqui está o comando que você pode usar no `Terminal Emulator`:
+    
+    ```bash
+    sudo du -sh /* | sort -rh | head -n 10
+    ```
 
 
 Vamos explicar o que cada parte do comando faz:
