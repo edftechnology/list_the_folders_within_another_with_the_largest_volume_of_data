@@ -231,6 +231,8 @@ find /home/edenedfsls/Documents/ -type d -name '0_BACKUP'
 ```
 ```
 
+### Explicação do script de limpeza do sistemaO script abaixo automatiza a remoção segura de arquivos temporários e logs no Ubuntu. Ele ativa `set -euo pipefail` para interromper a execução em caso de erros ou variáveis não definidas e, em seguida, realiza as seguintes etapas:1. Remove o conteúdo de `/tmp` e `/var/tmp`.2. Limpa o cache do APT com `apt-get clean`.3. Trunca arquivos de log principais (como `syslog`, `auth.log` e `kern.log`) em vez de apagá-los.4. Exclui logs rotacionados e compactados em `/var/log`.5. Reduz o tamanho dos logs do `journalctl` para 500 MB.6. Força a rotação de logs com `logrotate`.7. Remove arquivos em `~/.cache` e relatórios de falha em `/var/crash`.8. Executa `apt-get autoremove` para remover pacotes órfãos.9. Esvazia a lixeira do usuário.Ao final, o script recomenda verificar snapshots antigos do Timeshift, sugere o uso do BleachBit para limpeza gráfica e mostra o espaço ocupado em `/var/log` com `du -sh`.
+
 ## Referências
 
 [1] OPENAI. ***Listar pastas maiores linux.*** Disponível em: <https://chatgpt.com/c/eb532506-f911-4eb4-a483-6e060cd00863> (texto adaptado). Acessado em: 25/07/2024 13:33.
