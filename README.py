@@ -22,7 +22,11 @@
 # 
 # Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu`, você pode seguir estes passos:
 # 
-# 1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
+# 1. Abrir o `Terminal Emulator`. Você pode fazer isso pressionando:
+# 
+#     ```bash
+#     Ctrl + Alt + T
+#     ```
 
 # 2. Certifique-se de que seu sistema esteja limpo e atualizado.
 # 
@@ -102,7 +106,11 @@
 # 
 # Para configurar/instalar/usar o `listar as pastas dentro de outra com o maior volume de dados` no `Linux Ubuntu` sem precisar digitar linha por linha, você pode seguir estas etapas:
 # 
-# 1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
+# 1. Abrir o `Terminal Emulator`. Você pode fazer isso pressionando:
+# 
+#     ```bash
+#     Ctrl + Alt + T
+#     ```
 # 
 # 2. Digite o seguinte comando e pressione `Enter`:
 # 
@@ -192,50 +200,61 @@
 
 # ## Como usar o `clean_system.py`
 # 
-# O arquivo `docs/clean_system.py` automatiza tarefas de limpeza do sistema, removendo caches e arquivos temporários.
+# 1. O arquivo `docs/clean_system.py` automatiza tarefas de limpeza do sistema, removendo caches e arquivos temporários.
 # Execute o script com Python:
 # 
-# ```bash
-# python docs/clean_system.py
-# ```
+#     ```bash
+#     python docs/clean_system.py
+#     ```
 # 
-# Algumas etapas exigem privilégios de `sudo`, portanto você pode ser solicitado a informar a senha de administrador.
+#     Algumas etapas exigem privilégios de `sudo`, portanto você pode ser solicitado a informar a senha de administrador.
 # 
 
-# In[ ]:
+# ## Excluir todas as pastas e subpastas pelo `Terminal Emulator`
+# 
+# 1. Para excluir todas as pastas e subpastas chamadas, por exemplo `0_BACKUP`, dentro de `/home/edenedfsls/Documents/`, você pode usar o comando abaixo no seu Terminal Emulator:
+# 
+#     ```bash
+#     find /home/edenedfsls/Documents/ -type d -name '0_BACKUP' -exec echo "Deleting: {}" \; -exec rm -rf {} \;
+#     ```
+# 
+#     **Explicação**:
+#     - `find`: comando usado para localizar arquivos e diretórios.
+# 
+#     - `/home/edenedfsls/Documents/`: caminho base onde a busca será feita.
+# 
+#     - `-type d`: procura apenas por diretórios (pastas).
+# 
+#     - `-name '0_BACKUP'`: procura por pastas com exatamente esse nome.
+# 
+#     - `-exec rm -rf {} +`: para cada pasta encontrada, executa o comando `rm -rf` para removê-la com todo o conteúdo.
+# 
+#     **Atenção**:
+# 
+#     - Este comando apaga permanentemente todas as pastas chamadas 0_BACKUP e seus conteúdos, sem confirmação.
+# 
+#     - Se quiser ver a lista antes de excluir, execute primeiro:
+# 
+#     ```bash
+#     find /home/edenedfsls/Documents/ -type d -name '0_BACKUP'
+#     ```
 
-
-## Excluir todas as pastas e subpastas pelo `Terminal Emulator`
-
-Para excluir todas as pastas e subpastas chamadas, por exemplo `0_BACKUP`, dentro de `/home/edenedfsls/Documents/`, você pode usar o comando abaixo no seu Terminal Emulator:
-
-```bash
-find /home/edenedfsls/Documents/ -type d -name '0_BACKUP' -exec echo "Deleting: {}" \; -exec rm -rf {} \;
-```
-
-**Explicação**:
-- `find`: comando usado para localizar arquivos e diretórios.
-
-- `/home/edenedfsls/Documents/`: caminho base onde a busca será feita.
-
-- `-type d`: procura apenas por diretórios (pastas).
-
-- `-name '0_BACKUP'`: procura por pastas com exatamente esse nome.
-
-- `-exec rm -rf {} +`: para cada pasta encontrada, executa o comando `rm -rf` para removê-la com todo o conteúdo.
-
-**Atenção**:
-
-Este comando apaga permanentemente todas as pastas chamadas 0_BACKUP e seus conteúdos, sem confirmação.
-
-Se quiser ver a lista antes de excluir, execute primeiro:
-
-```bash
-find /home/edenedfsls/Documents/ -type d -name '0_BACKUP'
-```
-
-
-# ### Explicação do script de limpeza do sistemaO script abaixo automatiza a remoção segura de arquivos temporários e logs no Ubuntu. Ele ativa `set -euo pipefail` para interromper a execução em caso de erros ou variáveis não definidas e, em seguida, realiza as seguintes etapas:1. Remove o conteúdo de `/tmp` e `/var/tmp`.2. Limpa o cache do APT com `apt-get clean`.3. Trunca arquivos de log principais (como `syslog`, `auth.log` e `kern.log`) em vez de apagá-los.4. Exclui logs rotacionados e compactados em `/var/log`.5. Reduz o tamanho dos logs do `journalctl` para 500 MB.6. Força a rotação de logs com `logrotate`.7. Remove arquivos em `~/.cache` e relatórios de falha em `/var/crash`.8. Executa `apt-get autoremove` para remover pacotes órfãos.9. Esvazia a lixeira do usuário.Ao final, o script recomenda verificar snapshots antigos do Timeshift, sugere o uso do BleachBit para limpeza gráfica e mostra o espaço ocupado em `/var/log` com `du -sh`.
+# ### Explicação do _script_ de limpeza do sistema
+# 
+# O _script_ abaixo automatiza a remoção segura de arquivos temporários e _logs_ no `Linux Ubuntu`. Ele ativa `set -euo pipefail` para interromper a execução em caso de erros ou variáveis não definidas e, em seguida, realiza as seguintes etapas:
+# 
+# 1. Remove o conteúdo de `/tmp` e `/var/tmp`.
+# 2. Limpa o cache do APT com `apt-get clean`.
+# 3. Trunca arquivos de log principais (como `syslog`, `auth.log` e `kern.log`) em vez de apagá-los.
+# 4. Exclui logs rotacionados e compactados em `/var/log`.
+# 5. Reduz o tamanho dos logs do `journalctl` para 500 MB.
+# 6. Força a rotação de logs com `logrotate`.
+# 7. Remove arquivos em `~/.cache` e relatórios de falha em `/var/crash`.
+# 8. Executa `apt-get autoremove` para remover pacotes órfãos.
+# 9. Esvazia a lixeira do usuário.
+# 
+# Ao final, o _script_ recomenda verificar _snapshots_ antigos do `Timeshift`, sugere o uso do `BleachBit` para limpeza gráfica e mostra o espaço ocupado em `/var/log` com `du -sh`.
+# 
 
 # ## Referências
 # 
